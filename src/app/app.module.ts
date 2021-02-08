@@ -7,6 +7,8 @@ import { HomePageComponent } from './Components/home-page/home-page.component';
 import { UsersPageComponent } from './Components/users-page/users-page.component';
 import { AddEditComponent } from './Components/add-edit/add-edit.component';
 import { NavBarComponent } from './Components/nav-bar/nav-bar.component';
+import { AboutUsPageComponent } from './Components/about-us-page/about-us-page.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,11 +16,14 @@ import { NavBarComponent } from './Components/nav-bar/nav-bar.component';
     HomePageComponent,
     UsersPageComponent,
     AddEditComponent,
-    NavBarComponent
+    NavBarComponent,
+    AboutUsPageComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
