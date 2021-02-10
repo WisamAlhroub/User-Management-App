@@ -12,7 +12,7 @@
                         Name
                         <input class="form-control" type="text" id="name" formControlName="name" name="name">
                     </label>
-                    <div class="alert alert-danger" *ngIf="userForm.get('name').errors && userForm.get('name').errors.required || userForm.get('name').dirty && userForm.get('name').touched">
+                    <div class="alert alert-danger" *ngIf="userForm.get('name').errors && userForm.get('name').errors.required && userForm.get('name').dirty || userForm.get('name').touched">
                         This field should be filled
                     </div>
                 </div>
@@ -22,6 +22,9 @@
                         Email
                         <input class="form-control" type="email" id="email" formControlName="email" name="email">
                     </label>
+                    <div class="alert alert-danger" *ngIf="userForm.get('email').errors && userForm.get('email').errors.required && userForm.get('email').dirty || userForm.get('email').touched">
+                        This field should be filled
+                    </div>
                 </div>
 
                 <div class="mb-2">
@@ -34,6 +37,9 @@
                             <option value="Operation Engineer">Operation Engineer</option>
                         </select>
                     </label>
+                    <div class="alert alert-danger" *ngIf="userForm.get('role').errors && userForm.get('role').errors.required && userForm.get('role').dirty || userForm.get('role').touched">
+                        Choose the appropriate role!
+                    </div>
                 </div>
 
                 <div class="mb-2">
@@ -46,6 +52,9 @@
                             <option value="Offline">Offline</option>
                         </select>
                     </label>
+                    <div class="alert alert-danger" *ngIf="userForm.get('status').errors && userForm.get('status').errors.required && userForm.get('status').dirty || userForm.get('status').touched">
+                        Choose the appropriate status!
+                    </div>
                 </div>
 
                 <div class="mb-2">
