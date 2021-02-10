@@ -1,0 +1,32 @@
+h2 {
+    text-align: center;
+    margin: 50px 0px;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+
+    .addDiv {
+        border: 1px solid black;
+        border-radius: 15px;
+        height: 200px;
+        width: 400px;
+        padding: 20px;
+        .badge-light {
+            font-size: 16px;
+            margin: 10px 10px 0px 10px;
+        }
+    }
+
+    .searchDiv {
+        border: 1px solid black;
+        border-radius: 15px;
+        height: 200px;
+        width: 400px;
+        padding: 20px;
+    }
+}
+
