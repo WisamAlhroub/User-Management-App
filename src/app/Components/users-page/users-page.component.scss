@@ -16,12 +16,21 @@
 }
 
 thead {
+    .pic-name {
+        width: 13vw;
+    }
+    
     .actions-th {
         text-align: center;
     }
 }
 
 tbody {
+    .user-pic {
+        width: 50px;
+        padding-right: 10px;
+    }
+
     .actions {
         display: flex;
         flex-direction: row;

@@ -22,7 +22,7 @@ export class AddEditComponent implements OnInit {
 
   onSubmit() {
     const user = {
-      id: Math.random() % 100,
+      id: this.dataService.users.length + 1,
       name : this.userForm.value.name,
       email : this.userForm.value.email,
       role : this.userForm.value.role,

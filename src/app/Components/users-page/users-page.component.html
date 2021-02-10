@@ -21,7 +21,7 @@
                 <thead>
                     <tr>
                         <th scope="col">ID</th>
-                        <th scope="col">Name</th>
+                        <th scope="col" class="pic-name">Name</th>
                         <th scope="col">Email</th>
                         <th scope="col">Role</th>
                         <th scope="col">Status</th>
@@ -34,7 +34,7 @@
                     <tr *ngFor="let user of users | filter: term">
                         <th scope="row">{{user['id']}}</th>
                         <td>
-                            <img src="{{user['image']}}">
+                            <img class="user-pic" src="{{user['image']}}">
                             {{user['name']}}
                         </td>
                         <td>{{user['email']}}</td>

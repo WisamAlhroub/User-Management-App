@@ -12,7 +12,7 @@
                         Name
                         <input class="form-control" type="text" id="name" formControlName="name" name="name">
                     </label>
-                    <div class="alert alert-danger" *ngIf="userForm.get('name').errors && userForm.get('name').errors.required && userForm.get('name').dirty || userForm.get('name').touched">
+                    <div class="alert alert-danger" *ngIf="userForm.get('name').errors && userForm.get('name').errors.required && userForm.get('name').dirty">
                         This field should be filled
                     </div>
                 </div>
@@ -22,7 +22,7 @@
                         Email
                         <input class="form-control" type="email" id="email" formControlName="email" name="email">
                     </label>
-                    <div class="alert alert-danger" *ngIf="userForm.get('email').errors && userForm.get('email').errors.required && userForm.get('email').dirty || userForm.get('email').touched">
+                    <div class="alert alert-danger" *ngIf="userForm.get('email').errors && userForm.get('email').errors.required && userForm.get('email').dirty">
                         This field should be filled
                     </div>
                 </div>
@@ -37,7 +37,7 @@
                             <option value="Operation Engineer">Operation Engineer</option>
                         </select>
                     </label>
-                    <div class="alert alert-danger" *ngIf="userForm.get('role').errors && userForm.get('role').errors.required && userForm.get('role').dirty || userForm.get('role').touched">
+                    <div class="alert alert-danger" *ngIf="userForm.get('role').errors && userForm.get('role').errors.required && userForm.get('role').dirty">
                         Choose the appropriate role!
                     </div>
                 </div>
@@ -52,7 +52,7 @@
                             <option value="Offline">Offline</option>
                         </select>
                     </label>
-                    <div class="alert alert-danger" *ngIf="userForm.get('status').errors && userForm.get('status').errors.required && userForm.get('status').dirty || userForm.get('status').touched">
+                    <div class="alert alert-danger" *ngIf="userForm.get('status').errors && userForm.get('status').errors.required && userForm.get('status').dirty">
                         Choose the appropriate status!
                     </div>
                 </div>
