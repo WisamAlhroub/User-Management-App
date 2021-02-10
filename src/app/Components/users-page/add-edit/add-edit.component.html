@@ -1,0 +1,67 @@
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <strong class="h2">Add a new User</strong>
+        </div>
+
+        <div class="card-body card-block">
+            <form class="form-group" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+                <div class="mb-2">
+                    <label for="name" class="form-label">
+                        Name
+                        <input class="form-control" type="text" id="name" formControlName="name" name="name">
+                    </label>
+                    <div class="alert alert-danger" *ngIf="userForm.get('name').errors && userForm.get('name').errors.required || userForm.get('name').dirty && userForm.get('name').touched">
+                        This field should be filled
+                    </div>
+                </div>
+
+                <div class="mb-2">
+                    <label for="email" class="form-label">
+                        Email
+                        <input class="form-control" type="email" id="email" formControlName="email" name="email">
+                    </label>
+                </div>
+
+                <div class="mb-2">
+                    <label for="role" class="form-label">
+                        Role
+                        <select class="form-select" id="role" formControlName="role">
+                            <option selected></option>
+                            <option value="Software Engineer">Software Engineer</option>
+                            <option value="Quality Assurance Engineer">Quality Assurance Engineer</option>
+                            <option value="Operation Engineer">Operation Engineer</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="mb-2">
+                    <label for="" class="form-label">
+                        Status
+                        <select class="form-select" id="status" formControlName="status">
+                            <option selected></option>
+                            <option value="Active">Active</option>
+                            <option value="In a Meeting">In a Meeting</option>
+                            <option value="Offline">Offline</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="mb-2">
+                    <label for="user-pic" class="form-label">
+                        User Picture
+                        <input class="form-control" type="file" name="user-pic" id="user-pic" accept="image/*" 
+                            (change)="onSelectFile($event)" formControlName="image">
+
+                        <img class="user-pic" [src]="url">
+                    </label>
+                </div>
+            </form>
+        </div>
+
+        <div class="card-footer">
+            <button class="btn btn-primary" type="submit" [disabled]="userForm.invalid" (click)="onSubmit()">Submit</button>
+        </div>
+    </div>
+</div>

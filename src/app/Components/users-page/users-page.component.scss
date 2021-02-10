@@ -1,0 +1,30 @@
+.card-header {
+    .card-title {
+        display: flex;
+        align-items: center;
+    }
+
+    .add-button {
+        display: flex;
+        align-items: center;
+    }
+
+    .search-div {
+        display: flex;
+        align-items: center;
+    }
+}
+
+thead {
+    .actions-th {
+        text-align: center;
+    }
+}
+
+tbody {
+    .actions {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}
