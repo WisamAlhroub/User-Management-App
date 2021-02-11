@@ -1,0 +1,43 @@
+.card {
+    margin-top: 50px;
+}
+
+.card-header {
+    .card-title {
+        display: flex;
+        align-items: center;
+    }
+
+    .add-button {
+        display: flex;
+        align-items: center;
+    }
+
+    .search-div {
+        display: flex;
+        align-items: center;
+    }
+}
+
+thead {
+    .pic-name {
+        width: 13vw;
+    }
+    
+    .actions-th {
+        text-align: center;
+    }
+}
+
+tbody {
+    .user-pic {
+        width: 50px;
+        padding-right: 10px;
+    }
+
+    .actions {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}

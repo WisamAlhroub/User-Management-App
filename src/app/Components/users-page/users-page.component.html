@@ -1,2 +1,50 @@
-<p>users-page works!</p>
-<h2>test</h2>
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <div class="row">
+                <strong class="h2 col-sm-7 card-title">Users</strong>
+                <div class="col-sm-2 add-button">
+                    <button class="btn btn-success" routerLink="/users/add-edit/0" routerLinkActive="true">Add new User</button>
+                </div>
+                <div class="row col-sm-3 search-div">
+                    Search
+                    <input class="form-control" type="text" [(ngModel)]="term">
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <table class="table table-striped">
+
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col" class="pic-name">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Role</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Creation Date</th>
+                        <th class="actions-th" scope="col">Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let user of users | filter: term">
+                        <th scope="row">{{user['id']}}</th>
+                        <td>
+                            <img class="user-pic" src="{{user['image']}}">
+                            {{user['name']}}
+                        </td>
+                        <td>{{user['email']}}</td>
+                        <td>{{user['role']}}</td>
+                        <td>{{user['status']}}</td>
+                        <td>{{user['creationDate'] | date: 'medium'}}</td>
+                        <td class="actions">
+                            <button class="btn btn-secondary">Edit</button>
+                            <button class="btn btn-danger">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
