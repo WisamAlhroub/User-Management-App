@@ -1,13 +1,10 @@
-<div class="container">
-    <div>
-        
-    </div>  
+<div class="container-fluid">
     <div class="card">
         <div class="card-header">
             <div class="row">
                 <strong class="h2 col-sm-7 card-title">Users</strong>
                 <div class="col-sm-2 add-button">
-                    <button class="btn btn-success" routerLink="/users/add-edit/0" routerLinkActive="true">Add new User</button>
+                    <button class="btn btn-success" routerLink="/users/add-edit/-1" routerLinkActive="true">Add new User</button>
                 </div>
                 <div class="row col-sm-3 search-div">
                     Search
@@ -42,8 +39,8 @@
                         <td>{{user['status']}}</td>
                         <td>{{user['creationDate'] | date: 'medium'}}</td>
                         <td class="actions">
-                            <button class="btn btn-secondary">Edit</button>
-                            <button class="btn btn-danger">Delete</button>
+                            <button class="btn btn-secondary" (click)="onEdit(user['id'])">Edit</button>
+                            <button class="btn btn-danger" (click)="onDelete(user['id'])">Delete</button>
                         </td>
                     </tr>
                 </tbody>
@@ -51,4 +48,3 @@
         </div>
     </div>
 </div>
-
