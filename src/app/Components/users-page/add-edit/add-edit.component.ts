@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FirebaseService } from 'src/app/Services/firebase.service';
-
+import { User } from '../../../models/user'
 @Component({
   selector: 'app-add-edit',
   templateUrl: './add-edit.component.html',
@@ -23,12 +23,12 @@ export class AddEditComponent implements OnInit {
   onSubmit() {
     const user = {
       id: this.dataService.users.length + 1,
-      name : this.userForm.value.name,
-      email : this.userForm.value.email,
-      role : this.userForm.value.role,
-      status : this.userForm.value.status,
-      creationDate : Date.now(),
-      image : this.url
+      name: this.userForm.value.name,
+      email: this.userForm.value.email,
+      role: this.userForm.value.role,
+      status: this.userForm.value.status,
+      creationDate: Date.now(),
+      image: this.url
     };
 
     this.dataService.users.push(user);

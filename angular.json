@@ -124,8 +124,13 @@
               "devServerTarget": "User-management-App:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "User-management-App"
 }
