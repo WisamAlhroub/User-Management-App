@@ -24,7 +24,7 @@ export class AddEditComponent implements OnInit {
   onSubmit() {
     if (this.id == -1) {
       const user = {
-        id: this.dataService.value.id,
+        id: this.userForm.value.id,
         name: this.userForm.value.name,
         email: this.userForm.value.email,
         role: this.userForm.value.role,

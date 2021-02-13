@@ -15,7 +15,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { FirebaseService } from './Services/firebase.service'
-import { Observable } from 'rxjs';
+
 @NgModule({
   declarations: [
     AppComponent,

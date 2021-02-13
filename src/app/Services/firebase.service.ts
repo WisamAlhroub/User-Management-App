@@ -8,24 +8,19 @@ import { imgLink } from 'src/assets/img/wisam_image_link';
   providedIn: 'root'
 })
 export class FirebaseService {
-  // users: any[] = [
-  //   { id: 171054, name: 'Wisam', email: 'wis@wis.com', role: 'Employee', status: 'Single', creationDate: Date.now() },
-  //   { id: 171054, name: 'Ahmad', email: 'ahmad@wis.com', role: 'Employee', status: 'Single', creationDate: Date.now() },
-  //   { id: 171054, name: 'Ali', email: 'ali@wis.com', role: 'Employee', status: 'Single', creationDate: Date.now() },
-  //   { id: 171054, name: 'Maher', email: 'maher@wis.com', role: 'Employee', status: 'Single', creationDate: Date.now() },
-  //   { id: 171054, name: 'Amro', email: 'amro@wis.com', role: 'Employee', status: 'Single', creationDate: Date.now() },
-  //   { id: 171054, name: 'Abd', email: 'abd@wis.com', role: 'Employee', status: 'Single', creationDate: Date.now() },
-  // ];
-
+  users: any[] = [];
   usersCollection: AngularFirestoreCollection<User>;
-  users: Observable<User[]>;
+  dbUsers: Observable<User[]>;
 
   constructor(public AngularFirestore: AngularFirestore) {
-    this.users = this.AngularFirestore.collection('users').valueChanges();
+    this.dbUsers = this.AngularFirestore.collection('users').valueChanges();
+    this.dbUsers.subscribe(data => this.users = data);
+    console.log('The data to be fetched is:');
+    console.log(this.users);
   }
 
   getUsers() {
-    return this.users;
+    return this.dbUsers;
   }
 
   locateIndex(id): number {
