@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { User } from '../models/user'
 import { Observable } from 'rxjs';
+import { imgLink } from 'src/assets/img/wisam_image_link';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -26,4 +28,7 @@ export class FirebaseService {
     return this.users;
   }
 
+  locateIndex(id): number {
+    return this.users.findIndex(item => item['id'] == id);
+  }
 }

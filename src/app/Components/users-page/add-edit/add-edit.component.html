@@ -8,10 +8,25 @@
         <div class="card-body card-block">
             <form class="form-group" [formGroup]="userForm" (ngSubmit)="onSubmit()">
                 <div class="mb-2">
+                    <label for="id" class="form-label">
+                        Identity
+                    </label>
+                    <input class="form-control" type="text" id="id" formControlName="id" name="id" [placeholder]="tempUser['id']">
+                    
+                    <div class="alert alert-danger" *ngIf="userForm.get('id').errors && userForm.get('id').errors.required && userForm.get('id').dirty">
+                        This field should be filled
+                    </div>
+                    <div class="alert alert-danger" *ngIf="isExistingBefore(userForm.get('id').value)">
+                        This Id exists. Enter your real Id
+                    </div>
+                </div>
+
+                <div class="mb-2">
                     <label for="name" class="form-label">
                         Name
-                        <input class="form-control" type="text" id="name" formControlName="name" name="name">
                     </label>
+                    <input class="form-control" type="text" id="name" formControlName="name" name="name" [placeholder]="tempUser['name']">
+                
                     <div class="alert alert-danger" *ngIf="userForm.get('name').errors && userForm.get('name').errors.required && userForm.get('name').dirty">
                         This field should be filled
                     </div>
@@ -20,57 +35,55 @@
                 <div class="mb-2">
                     <label for="email" class="form-label">
                         Email
-                        <input class="form-control" type="email" id="email" formControlName="email" name="email">
                     </label>
+                    <input class="form-control" type="email" id="email" formControlName="email" name="email" [placeholder]="tempUser['email']">
+                   
                     <div class="alert alert-danger" *ngIf="userForm.get('email').errors && userForm.get('email').errors.required && userForm.get('email').dirty">
                         This field should be filled
+                    </div>
+                    <div class="alert alert-danger" *ngIf="userForm.get('email').invalid && userForm.get('email').touched && userForm.get('email').valueChanges">
+                        Enter an appropriate email!
                     </div>
                 </div>
 
                 <div class="mb-2">
                     <label for="role" class="form-label">
                         Role
-                        <select class="form-select" id="role" formControlName="role">
-                            <option selected></option>
-                            <option value="Software Engineer">Software Engineer</option>
-                            <option value="Quality Assurance Engineer">Quality Assurance Engineer</option>
-                            <option value="Operation Engineer">Operation Engineer</option>
-                        </select>
                     </label>
-                    <div class="alert alert-danger" *ngIf="userForm.get('role').errors && userForm.get('role').errors.required && userForm.get('role').dirty">
-                        Choose the appropriate role!
-                    </div>
+                    <select class="form-select" id="role" formControlName="role">
+                        <option selected hidden>{{tempUser['role']}}</option>
+                        <option value="Software Engineer">Software Engineer</option>
+                        <option value="Quality Assurance Engineer">Quality Assurance Engineer</option>
+                        <option value="Operation Engineer">Operation Engineer</option>
+                    </select>
                 </div>
 
                 <div class="mb-2">
-                    <label for="" class="form-label">
+                    <label for="status" class="form-label">
                         Status
-                        <select class="form-select" id="status" formControlName="status">
-                            <option selected></option>
-                            <option value="Active">Active</option>
-                            <option value="In a Meeting">In a Meeting</option>
-                            <option value="Offline">Offline</option>
-                        </select>
                     </label>
-                    <div class="alert alert-danger" *ngIf="userForm.get('status').errors && userForm.get('status').errors.required && userForm.get('status').dirty">
-                        Choose the appropriate status!
-                    </div>
+                    <select class="form-select" id="status" formControlName="status">
+                        <option selected hidden>{{tempUser['status']}}</option>
+                        <option value="Active">Active</option>
+                        <option value="In a Meeting">In a Meeting</option>
+                        <option value="Offline">Offline</option>
+                    </select>
                 </div>
 
                 <div class="mb-2">
                     <label for="user-pic" class="form-label">
                         User Picture
-                        <input class="form-control" type="file" name="user-pic" id="user-pic" accept="image/*" 
-                            (change)="onSelectFile($event)" formControlName="image">
-
-                        <img class="user-pic" [src]="url">
                     </label>
+                    <input class="form-control" type="file" name="user-pic" id="user-pic" accept="image/*" 
+                        (change)="onSelectFile($event)">
+
+                    <img class="user-pic" [src]="tempUser['image']">  
                 </div>
             </form>
         </div>
 
         <div class="card-footer">
-            <button class="btn btn-primary" type="submit" [disabled]="userForm.invalid" (click)="onSubmit()">Submit</button>
+            <button class="btn btn-primary" type="submit" (click)="onSubmit()" [disabled]="userForm.invalid || userForm.errors || userForm.untouched">Submit</button>
         </div>
     </div>
 </div>
