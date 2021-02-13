@@ -19,14 +19,10 @@ export class UsersPageComponent implements OnInit {
   }
 
   onDelete(id: any) {
-    this.dataService.users.splice(this.dataService.locateIndex(id), 1);
+    this.dataService.getUsers().splice(this.dataService.locateIndex(id), 1);
   }
 
   ngOnInit(): void {
-    this.dataService.getUsers().subscribe(users => {
-      // console.log(users);
-      this.users = users;
-    })
+    this.users = this.dataService.getUsers();
   }
-
 }

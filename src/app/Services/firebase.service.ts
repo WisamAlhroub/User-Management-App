@@ -8,19 +8,29 @@ import { imgLink } from 'src/assets/img/wisam_image_link';
   providedIn: 'root'
 })
 export class FirebaseService {
-  users: any[] = [];
+  private users: any[] = [];
   usersCollection: AngularFirestoreCollection<User>;
-  dbUsers: Observable<User[]>;
+  dbUsers: Observable<any[]>;
 
-  constructor(public AngularFirestore: AngularFirestore) {
-    this.dbUsers = this.AngularFirestore.collection('users').valueChanges();
-    this.dbUsers.subscribe(data => this.users = data);
-    console.log('The data to be fetched is:');
+  constructor(public db: AngularFirestore) {
+    this.dbUsers = db.collection("users").valueChanges();
+
+    this.dbUsers.subscribe(data => {
+      this.users = data;
+    });
+    
     console.log(this.users);
   }
 
   getUsers() {
-    return this.dbUsers;
+    this.users.forEach(element => {
+      element['creationDate'] = new Date(element['creationDate']['seconds']);
+    });
+    return this.users;
+  }
+
+  setUsers(users: any) {
+    this.users = users;
   }
 
   locateIndex(id): number {

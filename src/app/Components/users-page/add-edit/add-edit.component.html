@@ -11,7 +11,7 @@
                     <label for="id" class="form-label">
                         Identity
                     </label>
-                    <input class="form-control" type="text" id="id" formControlName="id" name="id" value="{{tempUser['id']}}">
+                    <input class="form-control" type="text" id="id" formControlName="id" name="id" [placeholder]="tempUser['id']">
                     
                     <div class="alert alert-danger" *ngIf="userForm.get('id').errors && userForm.get('id').errors.required && userForm.get('id').dirty">
                         This field should be filled
@@ -25,7 +25,7 @@
                     <label for="name" class="form-label">
                         Name
                     </label>
-                    <input class="form-control" type="text" id="name" formControlName="name" name="name" value="{{tempUser['name']}}">
+                    <input class="form-control" type="text" id="name" formControlName="name" name="name" [placeholder]="tempUser['name']">
                 
                     <div class="alert alert-danger" *ngIf="userForm.get('name').errors && userForm.get('name').errors.required && userForm.get('name').dirty">
                         This field should be filled
@@ -36,7 +36,7 @@
                     <label for="email" class="form-label">
                         Email
                     </label>
-                    <input class="form-control" type="email" id="email" formControlName="email" name="email" value="{{tempUser['email']}}">
+                    <input class="form-control" type="email" id="email" formControlName="email" name="email" [placeholder]="tempUser['email']">
                    
                     <div class="alert alert-danger" *ngIf="userForm.get('email').errors && userForm.get('email').errors.required && userForm.get('email').dirty">
                         This field should be filled

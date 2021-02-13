@@ -33,10 +33,10 @@ export class AddEditComponent implements OnInit {
         image : this.tempUser['image']
       };
 
-      this.dataService.users.push(user);
+      this.dataService.getUsers().push(user);
     }
     else {
-      this.dataService.users[this.dataService.locateIndex(this.id)] = this.tempUser;
+      this.dataService.getUsers()[this.dataService.locateIndex(this.id)] = this.tempUser;
     }
 
     this.router.navigate(['/users']);
@@ -56,10 +56,10 @@ export class AddEditComponent implements OnInit {
 
   isExistingBefore(id: any): boolean {
     if (id == -1) {
-      return true;
+      return false;
     }
 
-    this.dataService.users.forEach(element => {
+    this.dataService.getUsers().forEach(element => {
       if (element['id'] == id) {
         return true;
       }
@@ -73,7 +73,7 @@ export class AddEditComponent implements OnInit {
       let indexForUserToBeUpdated: number = this.dataService.locateIndex(id);
       console.log(`The index of object to be located is: ${indexForUserToBeUpdated}`);
 
-      let userToBeUpdated: any = this.dataService.users[indexForUserToBeUpdated];
+      let userToBeUpdated: any = this.dataService.getUsers()[indexForUserToBeUpdated];
 
       console.log('The data to be updated is: ');
       console.log(userToBeUpdated);
