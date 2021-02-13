@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "usermanagerapp-cde86": {
+      "hosting": {
+        "User-management-App": [
+          "usermanagerapp-cde86"
+        ]
+      }
+    }
+  }
+}

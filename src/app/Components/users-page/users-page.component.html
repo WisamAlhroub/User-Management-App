@@ -1,10 +1,13 @@
+
 <div class="container-fluid">
     <div class="card">
         <div class="card-header">
             <div class="row">
                 <strong class="h2 col-sm-7 card-title">Users</strong>
                 <div class="col-sm-2 add-button">
+       
                     <button class="btn btn-success" routerLink="/users/add-edit/-1" routerLinkActive="true">Add new User</button>
+
                 </div>
                 <div class="row col-sm-3 search-div">
                     Search
@@ -14,7 +17,6 @@
         </div>
         <div class="card-body">
             <table class="table table-striped">
-
                 <thead>
                     <tr>
                         <th scope="col">ID</th>
@@ -26,7 +28,6 @@
                         <th class="actions-th" scope="col">Actions</th>
                     </tr>
                 </thead>
-
                 <tbody>
                     <tr *ngFor="let user of users | filter: term">
                         <th scope="row">{{user['id']}}</th>
@@ -47,4 +48,5 @@
             </table>
         </div>
     </div>
+
 </div>

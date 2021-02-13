@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FirebaseService } from 'src/app/Services/firebase.service';
-
+import { User } from '../../models/user'
 @Component({
   selector: 'app-users-page',
   templateUrl: './users-page.component.html',
@@ -10,7 +10,7 @@ import { FirebaseService } from 'src/app/Services/firebase.service';
 export class UsersPageComponent implements OnInit {
   idElementNum: number = 0;
   term: string = '';
-  users: any[] = this.dataService.users;
+  users: User[];
 
   constructor(private dataService: FirebaseService, private router: Router) { }
 
@@ -23,6 +23,10 @@ export class UsersPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.dataService.getUsers().subscribe(users => {
+      // console.log(users);
+      this.users = users;
+    })
   }
 
 }
